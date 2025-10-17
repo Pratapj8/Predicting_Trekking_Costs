@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trekking Cost Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Trekking Cost Predictor</h1>
+        <form action="/predict" method="post">
+            
+            <label>Gender:</label>
+            <select name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label>Age:</label>
+            <input type="number" name="age" required>
+
+            <label>Height (cm):</label>
+            <input type="number" name="height" required>
+
+            <label>Weight (kg):</label>
+            <input type="number" name="weight" required>
+
+            <label>Duration (days):</label>
+            <input type="number" name="duration" required>
+
+            <label>Transportation Cost:</label>
+            <input type="number" name="transportation_cost" required>
+
+            <label>Accommodation Cost:</label>
+            <input type="number" name="accommodation_cost" required>
+
+            <label>Food Cost:</label>
+            <input type="number" name="food_cost" required>
+
+            <label>Activity Cost:</label>
+            <input type="number" name="activity_cost" required>
+
+            <label>Miscellaneous Cost:</label>
+            <input type="number" name="miscellaneous_cost" required>
+
+            <label>Season:</label>
+            <select name="season">
+                <option value="spring">Spring</option>
+                <option value="summer">Summer</option>
+                <option value="autumn">Autumn</option>
+                <option value="winter">Winter</option>
+            </select>
+
+            <label>Destination:</label>
+            <input type="text" name="destination" required>
+
+            <label>Number of People:</label>
+            <input type="number" name="number_of_people" required>
+
+            <label>Guide Needed:</label>
+            <select name="guide_needed">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label>Difficulty Level:</label>
+            <select name="difficulty_level">
+                <option value="easy">Easy</option>
+                <option value="moderate">Moderate</option>
+                <option value="hard">Hard</option>
+            </select>
+
+            <label>Previous Trek Experience:</label>
+            <select name="previous_trek_experience">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label>Medical History:</label>
+            <select name="medical_history">
+                <option value="none">None</option>
+                <option value="minor">Minor</option>
+                <option value="major">Major</option>
+            </select>
+
+            <label>Emergency Contact Provided:</label>
+            <select name="emergency_contact_provided">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label>Insurance Availed:</label>
+            <select name="insurance_availed">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label>Fitness Level:</label>
+            <select name="fitness_level">
+                <option value="low">Low</option>
+                <option value="moderate">Moderate</option>
+                <option value="high">High</option>
+            </select>
+
+            <label>Weather Conditions:</label>
+            <select name="weather_conditions">
+                <option value="clear">Clear</option>
+                <option value="rainy">Rainy</option>
+                <option value="snowy">Snowy</option>
+                <option value="stormy">Stormy</option>
+            </select>
+
+            <label>Terrain Type:</label>
+            <select name="terrain_type">
+                <option value="rocky">Rocky</option>
+                <option value="forest">Forest</option>
+                <option value="snow">Snow</option>
+                <option value="desert">Desert</option>
+            </select>
+
+            <label>Equipment Rented:</label>
+            <select name="equipment_rented">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label>Local Guide Available:</label>
+            <select name="local_guide_available">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label>Peak Season:</label>
+            <select name="peak_season">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label>Payment Method:</label>
+            <select name="payment_method">
+                <option value="cash">Cash</option>
+                <option value="card">Card</option>
+                <option value="online">Online</option>
+            </select>
+
+            <br><br>
+            <button type="submit">Predict Trekking Cost</button>
+        </form>
+
+        {% if results %}
+        <div class="prediction-result">
+            <h2>Predicted Trekking Cost: ₹{{ results }}</h2>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
